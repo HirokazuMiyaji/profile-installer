@@ -1,0 +1,15 @@
+language: go
+go:
+- 1.4
+env: PATH=/home/travis/gopath/bin:$PATH
+install:
+- go get github.com/mitchellh/gox
+- gox -build-toolchain -osarch=darwin/amd64
+script: make
+deploy:
+  provider: releases
+  api_key:
+    secure: OAEI2KBeIxbM0KgZSJaKIvRmypciWN0LmZgSt/dpjTg0g+WIBdGDbmBRT/tEjphmayKkukxmNULfPkwaiPVHWXMMhEINET084wsR6eD2jm6NqnKKkTu+kqH29fpNFJGEkF5zo0PnkGe46BWKo91SoK5SqLtpFN0xqsiWjbDULaE=
+  file: installer
+  on:
+    repo: HirokazuMiyaji/profile-installer
